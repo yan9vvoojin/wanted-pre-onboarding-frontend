@@ -50,7 +50,7 @@ const Todo = () => {
       <AddTodo setTodos={setTodos} />
       <Todos>
         {todos.map((todo) => (
-          <Item key={todo.id} {...todo} />
+          <Item key={todo.id} {...todo} setTodos={setTodos} />
         ))}
       </Todos>
     </Wrapper>
