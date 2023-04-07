@@ -37,6 +37,12 @@ const Form = ({ type }) => {
       navigate("/signin");
       return;
     }
+    if (response.status === 200) {
+      const { access_token } = await response.json();
+      localStorage.setItem("access_token", access_token);
+      navigate("/todo");
+      return;
+    }
   };
 
   return (
