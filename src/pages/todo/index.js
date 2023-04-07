@@ -2,7 +2,16 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import useCheckAccessToken from "../../components/hook/useCheckAccessToken";
+import AddTodo from "../../components/todo/AddTodo";
 import Item from "../../components/todo/Item";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 20rem;
+`;
 
 const Todos = styled.ul`
   display: flex;
@@ -10,7 +19,7 @@ const Todos = styled.ul`
   justify-content: center;
   align-items: flex-start;
   border: 1px solid red;
-  max-width: 20rem;
+  width: 100%;
   padding: 1rem;
 `;
 
@@ -37,13 +46,14 @@ const Todo = () => {
   };
 
   return (
-    <div>
+    <Wrapper>
+      <AddTodo setTodos={setTodos} />
       <Todos>
         {todos.map((todo) => (
           <Item key={todo.id} {...todo} />
         ))}
       </Todos>
-    </div>
+    </Wrapper>
   );
 };
 
