@@ -30,7 +30,7 @@ const EmailInput = ({ email, setEmail, setIsValidEmail }) => {
       <Input
         data-testid="email-input"
         id="email-input"
-        type="email"
+        type="text"
         autoComplete="on"
         value={email}
         onChange={handleChange}
