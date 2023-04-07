@@ -23,13 +23,25 @@ const Item = ({ id, todo, isCompleted, userId, setTodos }) => {
     }
   };
 
+  const handleDeleteButtonClick = async () => {
+    const url = `https://www.pre-onboarding-selection-task.shop/todos/${id}`;
+    const options = {
+      method: "DELETE",
+      headers: { Authorization: "Bearer " + localStorage.getItem("access_token") },
+    };
+    const response = await fetch(url, options);
+    if (response.status === 204) {
+      setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    }
+  };
+
   return (
     <Wrapper>
       <label>
         <Checkbox type="checkbox" checked={isCompleted} onClick={handleCheckboxClick} />
         <span>{todo}</span>
         <ModifyButton />
-        <DeleteButton />
+        <DeleteButton onClick={handleDeleteButtonClick} />
       </label>
     </Wrapper>
   );
