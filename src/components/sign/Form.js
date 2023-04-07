@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
+import { useState } from "react";
 import Button from "./Button";
-import Field from "./Field";
+import EmailInput from "./EmailInput";
+import PasswordInput from "./PasswordInput";
 
 const Wrapper = styled.form`
   display: flex;
@@ -15,11 +17,16 @@ const Wrapper = styled.form`
 `;
 
 const Form = ({ type }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  const [isValidPassword, setIsValidPassword] = useState(false);
+
   return (
     <Wrapper>
-      <Field type="email" />
-      <Field type="password" />
-      <Button type={`${type}`} />
+      <EmailInput email={email} setEmail={setEmail} setIsValidEmail={setIsValidEmail} />
+      <PasswordInput password={password} setPassword={setPassword} setIsValidPassword={setIsValidPassword} />
+      <Button type={`${type}`} disabled={!isValidEmail || !isValidPassword} />
     </Wrapper>
   );
 };
