@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import useCheckAccessToken from "../../components/hook/useCheckAccessToken";
-import AddTodo from "../../components/todo/AddTodo";
-import Item from "../../components/todo/Item";
+import AddTodo from "../components/todo/AddTodo";
+import Item from "../components/todo/Item";
+import useCheckAccessToken from "../hook/useCheckAccessToken";
 
 const Wrapper = styled.div`
   display: flex;
