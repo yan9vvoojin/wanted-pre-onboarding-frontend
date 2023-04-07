@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import DeleteButton from "./DeleteButton";
+import ModifyButton from "./ModifyButton";
 
 const Wrapper = styled.li``;
 
@@ -26,6 +28,8 @@ const Item = ({ id, todo, isCompleted, userId, setTodos }) => {
       <label>
         <Checkbox type="checkbox" checked={isCompleted} onClick={handleCheckboxClick} />
         <span>{todo}</span>
+        <ModifyButton />
+        <DeleteButton />
       </label>
     </Wrapper>
   );
