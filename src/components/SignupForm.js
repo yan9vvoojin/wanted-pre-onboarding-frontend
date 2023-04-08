@@ -2,26 +2,29 @@ import { useState } from "react";
 import useSignup from "../hook/useSignup";
 
 import StyledForm from "../styles/StyledForm";
-import EmailInput from "./EmailInput";
-import PasswordInput from "./PasswordInput";
+import FormInput from "./FormInput";
 
 const SignupForm = () => {
   const signup = useSignup();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isValidEmail, setIsValidEmail] = useState(false);
-  const [isValidPassword, setIsValidPassword] = useState(false);
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  const [isValid, setIsValid] = useState({
+    email: false,
+    password: false,
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signup(email, password);
+    signup(user.email, user.password);
   };
 
   return (
     <StyledForm onSubmit={(e) => handleSubmit(e)}>
-      <EmailInput email={email} setEmail={setEmail} setIsValidEmail={setIsValidEmail} />
-      <PasswordInput password={password} setPassword={setPassword} setIsValidPassword={setIsValidPassword} />
-      <button type="submit" data-testid="signup-button" disabled={!isValidEmail || !isValidPassword}>
+      <FormInput type="email" value={user.email} setValue={setUser} setIsValid={setIsValid} />
+      <FormInput type="password" value={user.password} setValue={setUser} setIsValid={setIsValid} />
+      <button type="submit" data-testid="signup-button" disabled={!isValid.email || !isValid.password}>
         회원가입
       </button>
     </StyledForm>
