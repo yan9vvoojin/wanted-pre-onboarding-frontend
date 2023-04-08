@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-const StyledFormInput = styled.input`
+const FormInput = styled.input`
   width: 100%;
+  padding: 0.2rem;
 `;
 
-export default StyledFormInput;
+export default FormInput;
