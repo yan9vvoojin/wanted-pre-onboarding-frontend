@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledForm = styled.form`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,4 +11,4 @@ const StyledForm = styled.form`
   border: 1px solid blue;
 `;
 
-export default StyledForm;
+export default Form;

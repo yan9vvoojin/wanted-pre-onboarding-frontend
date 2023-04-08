@@ -2,8 +2,8 @@ import { useState } from "react";
 import useSignin from "../hook/useSignin";
 import useSignup from "../hook/useSignup";
 
-import StyledForm from "../styles/StyledForm";
-import FormInput from "./FormInput";
+import Form from "../styles/Form";
+import FormField from "./FormField";
 
 const SignForm = ({ mode }) => {
   const signin = useSignin();
@@ -30,13 +30,13 @@ const SignForm = ({ mode }) => {
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
-      <FormInput type="email" value={user.email} setValue={setUser} setIsValid={setIsValid} />
-      <FormInput type="password" value={user.password} setValue={setUser} setIsValid={setIsValid} />
+    <Form onSubmit={handleSubmit}>
+      <FormField type="email" value={user.email} setUser={setUser} setIsValid={setIsValid} />
+      <FormField type="password" value={user.password} setUser={setUser} setIsValid={setIsValid} />
       <button type="submit" data-testid={`${mode}-button`} disabled={!isValid.email || !isValid.password}>
         {mode === "signin" ? "로그인" : "회원가입"}
       </button>
-    </StyledForm>
+    </Form>
   );
 };
 
