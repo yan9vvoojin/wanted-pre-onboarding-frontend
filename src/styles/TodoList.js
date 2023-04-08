@@ -7,8 +7,6 @@ const TodoList = styled.ul`
   align-items: flex-start;
   gap: 0.2rem;
   width: 100%;
-  margin: 1rem;
-  border: 1px solid red;
   list-style: none;
 `;
 
