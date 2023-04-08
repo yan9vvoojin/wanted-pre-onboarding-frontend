@@ -4,12 +4,14 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Todo from "./pages/Todo";
 
+import { SIGNIN, SIGNUP, TODO } from "./constants/routes";
+
 const App = () => {
   return (
     <Routes>
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/signin" element={<Signin />} />
-      <Route path="/todo" element={<Todo />} />
+      <Route path={SIGNIN} element={<Signin />} />
+      <Route path={SIGNUP} element={<Signup />} />
+      <Route path={TODO} element={<Todo />} />
     </Routes>
   );
 };

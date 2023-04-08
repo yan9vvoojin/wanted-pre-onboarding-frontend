@@ -6,6 +6,8 @@ import Button from "./Button";
 import EmailInput from "./EmailInput";
 import PasswordInput from "./PasswordInput";
 
+import { SIGNIN, TODO } from "../../constants/routes";
+
 const Wrapper = styled.form`
   display: flex;
   flex-direction: column;
@@ -34,13 +36,13 @@ const Form = ({ type }) => {
     };
     const response = await fetch(url, options);
     if (response.status === 201) {
-      navigate("/signin");
+      navigate(SIGNIN);
       return;
     }
     if (response.status === 200) {
       const { access_token } = await response.json();
       localStorage.setItem("access_token", access_token);
-      navigate("/todo");
+      navigate(TODO);
       return;
     }
   };
