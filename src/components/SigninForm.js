@@ -1,21 +1,9 @@
 import { useState } from "react";
-import styled from "styled-components";
-
-import EmailInput from "./EmailInput";
-import PasswordInput from "./PasswordInput";
-
 import useSignin from "../hook/useSignin";
 
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  max-width: 20rem;
-  padding: 1rem;
-  border: 1px solid red;
-`;
+import StyledForm from "../styles/StyledForm";
+import EmailInput from "./EmailInput";
+import PasswordInput from "./PasswordInput";
 
 const SigninForm = () => {
   const signin = useSignin();
