@@ -1,16 +1,9 @@
 import { useCallback } from "react";
-import styled from "styled-components";
 import validateInput from "../utils/validateInput";
 
+import StyledFormField from "../styles/FormField";
 import FormInput from "../styles/FormInput";
 import FormLabel from "../styles/FormLabel";
-
-const StyledFormField = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-`;
 
 const FormField = ({ type, value, setUser, setIsValid }) => {
   const handleChange = useCallback(
