@@ -1,6 +1,8 @@
 import styled from "styled-components";
-
 import useGetTodos from "../hook/useGetTodos";
+
+import { useEffect } from "react";
+import TodoInput from "./TodoInput";
 import TodoItem from "./TodoItem";
 
 const StyledTodoList = styled.ul`
@@ -16,12 +18,19 @@ const StyledTodoList = styled.ul`
 const TodoList = () => {
   const [todoList, setTodoList, getTodos] = useGetTodos();
 
+  useEffect(() => {
+    getTodos();
+  }, []);
+
   return (
-    <StyledTodoList>
-      {todoList.map((todo) => (
-        <TodoItem key={todo.id} {...todo} setTodoList={setTodoList} />
-      ))}
-    </StyledTodoList>
+    <>
+      <TodoInput setTodoList={setTodoList} />
+      <StyledTodoList>
+        {todoList.map((todo) => (
+          <TodoItem key={todo.id} {...todo} setTodoList={setTodoList} />
+        ))}
+      </StyledTodoList>
+    </>
   );
 };
 

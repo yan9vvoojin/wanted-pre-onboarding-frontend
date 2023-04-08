@@ -2,7 +2,6 @@ import styled from "styled-components";
 import useAccessTokenCheck from "../hook/useAccessTokenCheck";
 
 import TodoList from "../components/TodoList";
-import AddTodo from "../components/todo/AddTodo";
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,7 +16,6 @@ const Todo = () => {
 
   return (
     <Wrapper>
-      <AddTodo />
       <TodoList />
     </Wrapper>
   );
