@@ -1,14 +1,9 @@
-import styled from "styled-components";
-import useDeleteTodo from "../hook/useDeleteTodo";
-
 import { useState } from "react";
+import useDeleteTodo from "../hook/useDeleteTodo";
 import useUpdateTodo from "../hook/useUpdateTodo";
 
-const Wrapper = styled.li``;
-
-const Checkbox = styled.input`
-  margin-right: 0.5rem;
-`;
+import Checkbox from "../styles/Checkbox";
+import StyledTodoItem from "../styles/TodoItem";
 
 const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
   const updateTodo = useUpdateTodo();
@@ -45,7 +40,7 @@ const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
   };
 
   return (
-    <Wrapper>
+    <StyledTodoItem>
       <label>
         <Checkbox type="checkbox" checked={isCompleted} onChange={handleCheckboxClick} />
         {isModifyButtonClicked ? (
@@ -69,7 +64,7 @@ const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
           </button>
         </>
       )}
-    </Wrapper>
+    </StyledTodoItem>
   );
 };
 
