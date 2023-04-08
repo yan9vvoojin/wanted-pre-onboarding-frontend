@@ -1,20 +1,9 @@
 import { useState } from "react";
-import styled from "styled-components";
 import createTodo from "../utils/createTodo";
 
-import Button from "../styles/Button";
 import Input from "../styles/Input";
-
-const TodoInputField = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-`;
-
-const StyledButton = styled(Button)`
-  width: 20%;
-`;
+import TodoButton from "../styles/TodoButton";
+import TodoInputField from "../styles/TodoInputField";
 
 const TodoInput = ({ setTodoList }) => {
   const [input, setInput] = useState("");
@@ -31,9 +20,9 @@ const TodoInput = ({ setTodoList }) => {
   return (
     <TodoInputField>
       <Input data-testid="new-todo-input" value={input} onChange={handleInputChange} />
-      <StyledButton data-testid="new-todo-add-button" onClick={handleAddButtonClick}>
+      <TodoButton data-testid="new-todo-add-button" onClick={handleAddButtonClick}>
         추가
-      </StyledButton>
+      </TodoButton>
     </TodoInputField>
   );
 };
