@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 import validateInput from "../utils/validateInput";
 
-import StyledFormField from "../styles/FormField";
-import FormInput from "../styles/FormInput";
-import FormLabel from "../styles/FormLabel";
+import FormInputField from "../styles/FormInputField";
+import Input from "../styles/Input";
+import Label from "../styles/Label";
 
-const FormField = ({ type, value, setUser, setIsValid }) => {
+const FormInput = ({ type, value, setUser, setIsValid }) => {
   const handleChange = useCallback(
     (e) => {
       setUser((prev) => ({ ...prev, [type]: e.target.value }));
@@ -15,9 +15,9 @@ const FormField = ({ type, value, setUser, setIsValid }) => {
   );
 
   return (
-    <StyledFormField>
-      <FormLabel htmlFor={`${type}-input`}>{type === "email" ? "이메일" : "비밀번호"}</FormLabel>
-      <FormInput
+    <FormInputField>
+      <Label htmlFor={`${type}-input`}>{type === "email" ? "이메일" : "비밀번호"}</Label>
+      <Input
         data-testid={`${type}-input`}
         id={`${type}-input`}
         type={type === "email" ? "text" : "password"}
@@ -25,8 +25,8 @@ const FormField = ({ type, value, setUser, setIsValid }) => {
         value={value}
         onChange={handleChange}
       />
-    </StyledFormField>
+    </FormInputField>
   );
 };
 
-export default FormField;
+export default FormInput;

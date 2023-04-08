@@ -4,7 +4,7 @@ import useSignup from "../hook/useSignup";
 
 import Button from "../styles/Button";
 import Form from "../styles/Form";
-import FormField from "./FormField";
+import FormInput from "./FormInput";
 
 const SignForm = ({ mode }) => {
   const signin = useSignin();
@@ -32,8 +32,8 @@ const SignForm = ({ mode }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormField type="email" value={user.email} setUser={setUser} setIsValid={setIsValid} />
-      <FormField type="password" value={user.password} setUser={setUser} setIsValid={setIsValid} />
+      <FormInput type="email" value={user.email} setUser={setUser} setIsValid={setIsValid} />
+      <FormInput type="password" value={user.password} setUser={setUser} setIsValid={setIsValid} />
       <Button type="submit" data-testid={`${mode}-button`} disabled={!isValid.email || !isValid.password}>
         {mode === "signin" ? "로그인" : "회원가입"}
       </Button>
