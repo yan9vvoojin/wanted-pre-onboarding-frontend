@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import useDeleteTodo from "../hook/useDeleteTodo";
 
+import useUpdateTodo from "../hook/useUpdateTodo";
 import DeleteTodoButton from "./DeleteTodoButton";
 import ModifyTodoButton from "./ModifyTodoButton";
 
@@ -10,21 +11,13 @@ const Checkbox = styled.input`
   margin-right: 0.5rem;
 `;
 
-const Item = ({ id, todo, isCompleted, userId, setTodos }) => {
+const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
+  const updateTodo = useUpdateTodo();
   const deleteTodo = useDeleteTodo();
 
   const handleCheckboxClick = async () => {
-    const url = `https://www.pre-onboarding-selection-task.shop/todos/${id}`;
-    const options = {
-      method: "PUT",
-      headers: { Authorization: "Bearer " + localStorage.getItem("access_token"), "Content-Type": "application/json" },
-      body: JSON.stringify({ todo, isCompleted: !isCompleted }),
-    };
-    const response = await fetch(url, options);
-    if (response.status === 200) {
-      const updatedTodo = await response.json();
-      setTodos((prevTodos) => prevTodos.map((todo) => (todo.id === id ? updatedTodo : todo)));
-    }
+    const newTodo = { id, todo, isCompleted: !isCompleted };
+    updateTodo(newTodo, setTodoList);
   };
 
   const handleDeleteButtonClick = () => {
@@ -34,7 +27,7 @@ const Item = ({ id, todo, isCompleted, userId, setTodos }) => {
   return (
     <Wrapper>
       <label>
-        <Checkbox type="checkbox" checked={isCompleted} onClick={handleCheckboxClick} />
+        <Checkbox type="checkbox" checked={isCompleted} onChange={handleCheckboxClick} />
         <span>{todo}</span>
         <ModifyTodoButton />
         <DeleteTodoButton onClick={handleDeleteButtonClick} />
@@ -43,4 +36,4 @@ const Item = ({ id, todo, isCompleted, userId, setTodos }) => {
   );
 };
 
-export default Item;
+export default TodoItem;
