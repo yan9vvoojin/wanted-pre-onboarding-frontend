@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import DeleteButton from "./DeleteButton";
-import ModifyButton from "./ModifyButton";
+import useDeleteTodo from "../hook/useDeleteTodo";
+
+import DeleteTodoButton from "./DeleteTodoButton";
+import ModifyTodoButton from "./ModifyTodoButton";
 
 const Wrapper = styled.li``;
 
@@ -9,6 +11,8 @@ const Checkbox = styled.input`
 `;
 
 const Item = ({ id, todo, isCompleted, userId, setTodos }) => {
+  const deleteTodo = useDeleteTodo();
+
   const handleCheckboxClick = async () => {
     const url = `https://www.pre-onboarding-selection-task.shop/todos/${id}`;
     const options = {
@@ -23,16 +27,8 @@ const Item = ({ id, todo, isCompleted, userId, setTodos }) => {
     }
   };
 
-  const handleDeleteButtonClick = async () => {
-    const url = `https://www.pre-onboarding-selection-task.shop/todos/${id}`;
-    const options = {
-      method: "DELETE",
-      headers: { Authorization: "Bearer " + localStorage.getItem("access_token") },
-    };
-    const response = await fetch(url, options);
-    if (response.status === 204) {
-      setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-    }
+  const handleDeleteButtonClick = () => {
+    deleteTodo(id);
   };
 
   return (
@@ -40,8 +36,8 @@ const Item = ({ id, todo, isCompleted, userId, setTodos }) => {
       <label>
         <Checkbox type="checkbox" checked={isCompleted} onClick={handleCheckboxClick} />
         <span>{todo}</span>
-        <ModifyButton />
-        <DeleteButton onClick={handleDeleteButtonClick} />
+        <ModifyTodoButton />
+        <DeleteTodoButton onClick={handleDeleteButtonClick} />
       </label>
     </Wrapper>
   );
