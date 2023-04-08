@@ -1,16 +1,11 @@
-import { useEffect } from "react";
-import useGetTodos from "../hook/useGetTodos";
+import useGetTodoList from "../hook/useGetTodoList";
 
 import StyledTodoList from "../styles/TodoList";
 import TodoInput from "./TodoInput";
 import TodoItem from "./TodoItem";
 
 const TodoList = () => {
-  const [todoList, setTodoList, getTodos] = useGetTodos();
-
-  useEffect(() => {
-    getTodos();
-  }, []);
+  const [todoList, setTodoList] = useGetTodoList();
 
   return (
     <>

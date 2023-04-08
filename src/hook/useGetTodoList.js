@@ -1,19 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { TODO_API_URL } from "../constants/api";
 
-const useGetTodos = () => {
+const useGetTodoList = () => {
   const [todoList, setTodoList] = useState([]);
 
-  const getTodos = async () => {
+  useEffect(() => {
+    getTodoList();
+  }, []);
+
+  const getTodoList = async () => {
     try {
       const response = await fetch(TODO_API_URL, {
         method: "GET",
         headers: { Authorization: "Bearer " + localStorage.getItem("access_token") },
       });
       if (response.status === 200) {
-        const todos = await response.json();
-        setTodoList(todos);
+        const todoList = await response.json();
+        setTodoList(todoList);
       } else {
         const { message } = await response.json();
         throw new Error(`할일 가져오기 실패 (${message})`);
@@ -23,7 +27,7 @@ const useGetTodos = () => {
     }
   };
 
-  return [todoList, setTodoList, getTodos];
+  return [todoList, setTodoList];
 };
 
-export default useGetTodos;
+export default useGetTodoList;
