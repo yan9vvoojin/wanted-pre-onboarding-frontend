@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import useCreateTodo from "../hook/useCreateTodo";
+import createTodo from "../utils/createTodo";
 
 import Button from "../styles/Button";
 import Input from "../styles/Input";
@@ -17,7 +17,6 @@ const StyledButton = styled(Button)`
 `;
 
 const TodoInput = ({ setTodoList }) => {
-  const createTodo = useCreateTodo();
   const [input, setInput] = useState("");
 
   const handleInputChange = (e) => {
