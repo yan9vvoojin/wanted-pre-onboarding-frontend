@@ -1,13 +1,12 @@
 import { useState } from "react";
-import useDeleteTodo from "../hook/useDeleteTodo";
 import useUpdateTodo from "../hook/useUpdateTodo";
+import deleteTodo from "../utils/deleteTodo";
 
 import Checkbox from "../styles/Checkbox";
 import StyledTodoItem from "../styles/TodoItem";
 
 const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
   const updateTodo = useUpdateTodo();
-  const deleteTodo = useDeleteTodo();
   const [isModifyButtonClicked, setIsModifyButtonClicked] = useState(false);
   const [input, setInput] = useState(todo);
 
