@@ -1,23 +1,15 @@
-import styled from "styled-components";
 import useAccessTokenCheck from "../hook/useAccessTokenCheck";
 
 import SignForm from "../components/SignForm";
-
-const Container = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-`;
+import SignPage from "../styles/SignPage";
 
 const Signin = () => {
   useAccessTokenCheck();
 
   return (
-    <Container>
+    <SignPage>
       <SignForm mode="signin" />
-    </Container>
+    </SignPage>
   );
 };
 

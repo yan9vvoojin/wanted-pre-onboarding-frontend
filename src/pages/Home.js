@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Container = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-`;
+import SignPage from "../styles/SignPage";
 
 const StyledLink = styled(Link)`
   color: black;
@@ -15,10 +9,10 @@ const StyledLink = styled(Link)`
 
 const Home = () => {
   return (
-    <Container>
+    <SignPage>
       <StyledLink to="/signin">로그인</StyledLink>
       <StyledLink to="/signup">회원가입</StyledLink>
-    </Container>
+    </SignPage>
   );
 };
 
