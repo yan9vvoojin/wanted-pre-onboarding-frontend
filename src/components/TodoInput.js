@@ -13,7 +13,9 @@ const TodoInput = ({ setTodoList }) => {
   };
 
   const handleAddButtonClick = () => {
-    createTodo(input, setTodoList);
+    const trimmedInput = input.trim();
+    if (trimmedInput === "") return;
+    createTodo(trimmedInput, setTodoList);
     setInput("");
   };
 
