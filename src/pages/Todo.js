@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import AddTodo from "../components/todo/AddTodo";
 import Item from "../components/todo/Item";
-import useCheckAccessToken from "../hook/useCheckAccessToken";
+import useAccessTokenCheck from "../hook/useAccessTokenCheck";
 
 const Wrapper = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ const Todos = styled.ul`
 const Todo = () => {
   const [todos, setTodos] = useState([]);
 
-  useCheckAccessToken();
+  useAccessTokenCheck();
 
   useEffect(() => {
     getTodos();

@@ -1,8 +1,9 @@
 import Form from "../components/sign/Form";
-import useCheckAccessToken from "../hook/useCheckAccessToken";
+
+import useAccessTokenCheck from "../hook/useAccessTokenCheck";
 
 const Signup = () => {
-  useCheckAccessToken();
+  useAccessTokenCheck();
 
   return <Form type="signup" />;
 };

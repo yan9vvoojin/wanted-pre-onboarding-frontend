@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const useCheckAccessToken = () => {
+const useAccessTokenCheck = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -18,4 +18,4 @@ const useCheckAccessToken = () => {
   }, [navigate, pathname]);
 };
 
-export default useCheckAccessToken;
+export default useAccessTokenCheck;
