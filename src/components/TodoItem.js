@@ -1,13 +1,11 @@
-import { useState } from "react";
-import deleteTodo from "../utils/deleteTodo";
-import updateTodo from "../utils/updateTodo";
+import { useCallback, useState } from "react";
 
 import Checkbox from "../styles/Checkbox";
 import StyledTodoItem from "../styles/TodoItem";
 
-const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
-  const [isModifyButtonClicked, setIsModifyButtonClicked] = useState(false);
+const TodoItem = ({ id, todo, isCompleted, setTodoList, deleteTodo, updateTodo }) => {
   const [input, setInput] = useState(todo);
+  const [isModifyMode, setIsModifyMode] = useState(false);
 
   const handleCheckboxClick = () => {
     const newTodo = { id, todo, isCompleted: !isCompleted };
@@ -17,37 +15,40 @@ const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
   const handleSubmitButtonClick = () => {
     const newTodo = { id, isCompleted, todo: input };
     updateTodo(newTodo, setTodoList);
-    setIsModifyButtonClicked(false);
+    setIsModifyMode(false);
   };
 
   const handleCancelButtonClick = () => {
-    setIsModifyButtonClicked(false);
     setInput(todo);
+    setIsModifyMode(false);
   };
 
   const handleModifyButtonClick = () => {
-    setIsModifyButtonClicked(true);
+    setIsModifyMode(true);
   };
 
   const handleDeleteButtonClick = () => {
     deleteTodo(id, setTodoList);
   };
 
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
-  };
+  const handleInputChange = useCallback(
+    (e) => {
+      setInput(e.target.value);
+    },
+    [setInput],
+  );
 
   return (
     <StyledTodoItem>
       <label>
         <Checkbox type="checkbox" checked={isCompleted} onChange={handleCheckboxClick} />
-        {isModifyButtonClicked ? (
+        {isModifyMode ? (
           <input data-testid="modify-input" value={input} onChange={handleInputChange} />
         ) : (
           <span>{todo}</span>
         )}
       </label>
-      {isModifyButtonClicked ? (
+      {isModifyMode ? (
         <>
           <button onClick={handleSubmitButtonClick}>제출</button>
           <button onClick={handleCancelButtonClick}>취소</button>
