@@ -8,7 +8,8 @@ const Form = styled.form`
   gap: 0.5rem;
   max-width: 20rem;
   padding: 1rem;
-  border: 1px solid blue;
+  margin: 1rem;
+  border: 1px solid black;
 `;
 
 export default Form;

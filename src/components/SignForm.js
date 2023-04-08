@@ -30,12 +30,15 @@ const SignForm = ({ mode }) => {
     }
   };
 
+  const text = mode === "signin" ? "로그인" : "회원가입";
+
   return (
     <Form onSubmit={handleSubmit}>
+      <span>{text}</span>
       <FormInput type="email" value={user.email} setUser={setUser} setIsValid={setIsValid} />
       <FormInput type="password" value={user.password} setUser={setUser} setIsValid={setIsValid} />
       <Button type="submit" data-testid={`${mode}-button`} disabled={!isValid.email || !isValid.password}>
-        {mode === "signin" ? "로그인" : "회원가입"}
+        {text}
       </Button>
     </Form>
   );
