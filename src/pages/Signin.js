@@ -1,10 +1,10 @@
-import Form from "../components/sign/Form";
+import SigninForm from "../components/SigninForm";
 import useAccessTokenCheck from "../hook/useAccessTokenCheck";
 
 const Signin = () => {
   useAccessTokenCheck();
 
-  return <Form type="signin" />;
+  return <SigninForm />;
 };
 
 export default Signin;
