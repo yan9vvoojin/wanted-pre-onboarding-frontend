@@ -21,7 +21,7 @@ const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
   };
 
   const handleDeleteButtonClick = () => {
-    deleteTodo(id);
+    deleteTodo(id, setTodoList);
   };
 
   return (
