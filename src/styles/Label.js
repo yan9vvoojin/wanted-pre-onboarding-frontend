@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const FormLabel = styled.label`
+const Label = styled.label`
   min-width: 4rem;
 `;
 
-export default FormLabel;
+export default Label;

@@ -12,8 +12,8 @@ const useCreateTodo = () => {
         body: JSON.stringify({ todo: newTodo }),
       });
       if (response.status === 201) {
-        const newTodo = await response.json();
-        setTodoList((prevTodo) => [...prevTodo, newTodo]);
+        const createdTodo = await response.json();
+        setTodoList((prev) => [...prev, createdTodo]);
       } else {
         const { message } = await response.json();
         throw new Error(`할일 추가 실패 (${message})`);

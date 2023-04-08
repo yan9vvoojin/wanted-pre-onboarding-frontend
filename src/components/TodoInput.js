@@ -2,11 +2,19 @@ import { useState } from "react";
 import styled from "styled-components";
 import useCreateTodo from "../hook/useCreateTodo";
 
-const Wrapper = styled.div``;
+import Button from "../styles/Button";
+import Input from "../styles/Input";
 
-const Input = styled.input``;
+const TodoInputField = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
 
-const Button = styled.button``;
+const StyledButton = styled(Button)`
+  width: 20%;
+`;
 
 const TodoInput = ({ setTodoList }) => {
   const createTodo = useCreateTodo();
@@ -18,15 +26,16 @@ const TodoInput = ({ setTodoList }) => {
 
   const handleAddButtonClick = () => {
     createTodo(input, setTodoList);
+    setInput("");
   };
 
   return (
-    <Wrapper>
+    <TodoInputField>
       <Input data-testid="new-todo-input" value={input} onChange={handleInputChange} />
-      <Button data-testid="new-todo-add-button" onClick={handleAddButtonClick}>
+      <StyledButton data-testid="new-todo-add-button" onClick={handleAddButtonClick}>
         추가
-      </Button>
-    </Wrapper>
+      </StyledButton>
+    </TodoInputField>
   );
 };
 
