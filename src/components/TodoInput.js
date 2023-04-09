@@ -21,7 +21,7 @@ const TodoInput = ({ setTodoList }) => {
 
   return (
     <TodoInputField>
-      <Input data-testid="new-todo-input" value={input} onChange={handleInputChange} />
+      <Input data-testid="new-todo-input" value={input} onChange={handleInputChange} placeholder="할일을 입력하세요" />
       <TodoButton data-testid="new-todo-add-button" onClick={handleAddButtonClick}>
         추가
       </TodoButton>

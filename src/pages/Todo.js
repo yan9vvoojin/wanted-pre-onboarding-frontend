@@ -4,7 +4,7 @@ import useAccessTokenCheck from "../hook/useAccessTokenCheck";
 import TodoList from "../components/TodoList";
 
 const Container = styled.div`
-  margin: 0 auto;
+  margin: 1rem auto;
   max-width: 30rem;
 `;
 

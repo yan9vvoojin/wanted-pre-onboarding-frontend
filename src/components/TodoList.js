@@ -9,7 +9,6 @@ import TodoItem from "./TodoItem";
 
 const Container = styled.div`
   width: 100%;
-  background-color: bisque;
 `;
 
 const TodoList = () => {

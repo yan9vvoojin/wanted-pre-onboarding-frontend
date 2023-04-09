@@ -46,7 +46,7 @@ const TodoItem = ({ id, todo, isCompleted, setTodoList, deleteTodo, updateTodo }
     <StyledTodoItem>
       <TodoLabel>
         <Checkbox type="checkbox" checked={isCompleted} onChange={handleCheckboxClick} />
-        {isModifyMode && <Input data-testid="modify-input" value={input} onChange={handleInputChange} />}{" "}
+        {isModifyMode && <Input data-testid="modify-input" value={input} onChange={handleInputChange} />}
         {!isModifyMode && <span>{todo}</span>}
       </TodoLabel>
       {isModifyMode && (

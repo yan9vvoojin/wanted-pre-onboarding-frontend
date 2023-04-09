@@ -13,7 +13,7 @@ const Container = styled.header`
   align-items: center;
   height: 2rem;
   padding: 1rem;
-  background-color: lightpink;
+  background-color: lightgrey;
   font-size: 1.5rem;
 `;
 
@@ -48,7 +48,7 @@ const Header = () => {
 
   return (
     <Container>
-      <span>원티드 프리온보딩 프론트엔드 - 선발 과제</span>
+      <span>TODO</span>
       <Buttons>
         <Button onClick={handleToggleButtonClick}>{hasAccessToken ? "로그아웃" : "로그인"}</Button>
         <SignupButton onClick={handleSignupButtonClick} display={!hasAccessToken}>
