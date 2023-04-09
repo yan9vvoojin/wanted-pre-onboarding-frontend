@@ -1,45 +1,34 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 
+import StyledHeader from "../styles/Header";
 import Button from "../styles/TodoButton";
 import Buttons from "../styles/TodoButtons";
+import ToggleButton from "../styles/ToggleButton";
 
-import { SIGNIN, SIGNUP } from "../constants/routes";
-
-const Container = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 2rem;
-  padding: 1rem;
-  background-color: lightgrey;
-  font-size: 1.5rem;
-`;
-
-const SignupButton = styled(Button)`
-  display: ${(props) => (props.display ? "block" : "none")};
-`;
+import { HOME, SIGNIN, SIGNUP } from "../constants/routes";
 
 const Header = () => {
   const navigate = useNavigate();
   const accessToken = localStorage.getItem("access_token");
-  const [hasAccessToken, setHasAccessToken] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
     if (accessToken) {
-      setHasAccessToken(true);
+      setIsSignedIn(true);
     } else {
-      setHasAccessToken(false);
+      setIsSignedIn(false);
     }
   }, [accessToken]);
 
   const handleToggleButtonClick = () => {
-    if (hasAccessToken) {
+    if (isSignedIn) {
       localStorage.clear();
-      setHasAccessToken(false);
+      setIsSignedIn(false);
+      navigate(HOME);
+    } else {
+      navigate(SIGNIN);
     }
-    navigate(SIGNIN);
   };
 
   const handleSignupButtonClick = () => {
@@ -47,15 +36,15 @@ const Header = () => {
   };
 
   return (
-    <Container>
+    <StyledHeader>
       <span>TODO</span>
       <Buttons>
-        <Button onClick={handleToggleButtonClick}>{hasAccessToken ? "로그아웃" : "로그인"}</Button>
-        <SignupButton onClick={handleSignupButtonClick} display={!hasAccessToken}>
+        <Button onClick={handleToggleButtonClick}>{isSignedIn ? "로그아웃" : "로그인"}</Button>
+        <ToggleButton onClick={handleSignupButtonClick} shouldDisplay={!isSignedIn}>
           회원가입
-        </SignupButton>
+        </ToggleButton>
       </Buttons>
-    </Container>
+    </StyledHeader>
   );
 };
 
