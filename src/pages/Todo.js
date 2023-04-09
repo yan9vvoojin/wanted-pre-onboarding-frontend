@@ -1,20 +1,15 @@
-import styled from "styled-components";
 import useAccessTokenCheck from "../hook/useAccessTokenCheck";
 
 import TodoList from "../components/TodoList";
-
-const Container = styled.div`
-  margin: 1rem auto;
-  max-width: 30rem;
-`;
+import TodoPage from "../styles/TodoPage";
 
 const Todo = () => {
   useAccessTokenCheck();
 
   return (
-    <Container>
+    <TodoPage>
       <TodoList />
-    </Container>
+    </TodoPage>
   );
 };
 
