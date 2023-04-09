@@ -6,7 +6,7 @@ import { SIGNIN } from "../constants/routes";
 const useSignup = () => {
   const navigate = useNavigate();
 
-  const signup = async (email, password) => {
+  const signup = async ({ email, password }) => {
     try {
       const response = await fetch(SIGNUP_API_URL, {
         method: "POST",

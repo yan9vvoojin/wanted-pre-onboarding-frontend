@@ -21,12 +21,9 @@ const SignForm = ({ mode }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (mode === "signin") {
-      signin(user.email, user.password);
-      return;
-    }
-    if (mode === "signup") {
-      signup(user.email, user.password);
-      return;
+      signin(user);
+    } else {
+      signup(user);
     }
   };
 
