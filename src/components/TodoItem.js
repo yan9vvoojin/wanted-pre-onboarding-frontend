@@ -1,4 +1,6 @@
 import { useState } from "react";
+import deleteTodo from "../utils/deleteTodo";
+import updateTodo from "../utils/updateTodo";
 
 import Checkbox from "../styles/Checkbox";
 import Input from "../styles/Input";
@@ -7,7 +9,7 @@ import TodoButtons from "../styles/TodoButtons";
 import StyledTodoItem from "../styles/TodoItem";
 import TodoLabel from "../styles/TodoLabel";
 
-const TodoItem = ({ id, todo, isCompleted, setTodoList, deleteTodo, updateTodo }) => {
+const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
   const [input, setInput] = useState(todo);
   const [isModifyMode, setIsModifyMode] = useState(false);
 

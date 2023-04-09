@@ -1,6 +1,4 @@
 import useGetTodoList from "../hook/useGetTodoList";
-import deleteTodo from "../utils/deleteTodo";
-import updateTodo from "../utils/updateTodo";
 
 import StyledTodoList from "../styles/TodoList";
 import TodoInput from "./TodoInput";
@@ -14,7 +12,7 @@ const TodoList = () => {
       <TodoInput setTodoList={setTodoList} />
       <StyledTodoList>
         {todoList.map((todo) => (
-          <TodoItem key={todo.id} {...todo} setTodoList={setTodoList} deleteTodo={deleteTodo} updateTodo={updateTodo} />
+          <TodoItem key={todo.id} {...todo} setTodoList={setTodoList} />
         ))}
       </StyledTodoList>
     </>
