@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 import Checkbox from "../styles/Checkbox";
 import Input from "../styles/Input";
@@ -35,12 +35,9 @@ const TodoItem = ({ id, todo, isCompleted, setTodoList, deleteTodo, updateTodo }
     deleteTodo(id, setTodoList);
   };
 
-  const handleInputChange = useCallback(
-    (e) => {
-      setInput(e.target.value);
-    },
-    [setInput],
-  );
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+  };
 
   return (
     <StyledTodoItem>
