@@ -19,6 +19,7 @@ const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
   };
 
   const handleSubmit = () => {
+    if (input.trim() === "") return;
     const newTodo = { id, isCompleted, todo: input };
     updateTodo(newTodo, setTodoList);
     setIsModifyMode(false);
