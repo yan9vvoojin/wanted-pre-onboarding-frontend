@@ -50,8 +50,12 @@ const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
       </TodoLabel>
       {isModifyMode && (
         <TodoButtons>
-          <TodoButton onClick={handleSubmit}>제출</TodoButton>
-          <TodoButton onClick={handleCancel}>취소</TodoButton>
+          <TodoButton data-testid="submit-button" onClick={handleSubmit}>
+            제출
+          </TodoButton>
+          <TodoButton data-testid="cancel-button" onClick={handleCancel}>
+            취소
+          </TodoButton>
         </TodoButtons>
       )}
       {!isModifyMode && (
