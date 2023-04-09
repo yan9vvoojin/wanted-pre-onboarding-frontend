@@ -11,11 +11,8 @@ const useAccessTokenCheck = () => {
     const access_token = localStorage.getItem("access_token");
     if (access_token && (pathname === SIGNIN || pathname === SIGNUP)) {
       navigate(TODO);
-      return;
-    }
-    if (!access_token && pathname === TODO) {
+    } else if (!access_token && pathname === TODO) {
       navigate(SIGNIN);
-      return;
     }
   }, [navigate, pathname]);
 };
