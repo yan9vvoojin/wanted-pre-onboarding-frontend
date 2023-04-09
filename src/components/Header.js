@@ -9,17 +9,17 @@ import ToggleButton from "../styles/ToggleButton";
 import { HOME, SIGNIN, SIGNUP } from "../constants/routes";
 
 const Header = () => {
+  const access_token = localStorage.getItem("access_token");
   const navigate = useNavigate();
-  const accessToken = localStorage.getItem("access_token");
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
-    if (accessToken) {
+    if (access_token) {
       setIsSignedIn(true);
     } else {
       setIsSignedIn(false);
     }
-  }, [accessToken]);
+  }, [access_token]);
 
   const handleToggleButtonClick = () => {
     if (isSignedIn) {
