@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import useSign from "../hook/useSign";
+import useSign from "../hooks/useSign";
 import Button from "../styles/Button";
 import Form from "../styles/Form";
 import FormInput from "./FormInput";

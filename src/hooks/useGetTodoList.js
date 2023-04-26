@@ -15,7 +15,9 @@ const useGetTodoList = () => {
     try {
       const response = await fetch(TODO_API_URL, {
         method: "GET",
-        headers: { Authorization: "Bearer " + localStorage.getItem("access_token") },
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
       });
       if (response.status === 200) {
         const todoList = await response.json();

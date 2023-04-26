@@ -1,9 +1,9 @@
 import { useState } from "react";
-import createTodo from "../utils/createTodo";
 
 import Input from "../styles/Input";
 import TodoButton from "../styles/TodoButton";
 import TodoInputField from "../styles/TodoInputField";
+import createTodo from "../utils/createTodo";
 
 const TodoInput = ({ setTodoList }) => {
   const [input, setInput] = useState("");
@@ -21,8 +21,16 @@ const TodoInput = ({ setTodoList }) => {
 
   return (
     <TodoInputField>
-      <Input data-testid="new-todo-input" value={input} onChange={handleInputChange} placeholder="할일을 입력하세요" />
-      <TodoButton data-testid="new-todo-add-button" onClick={handleAddButtonClick}>
+      <Input
+        data-testid="new-todo-input"
+        value={input}
+        onChange={handleInputChange}
+        placeholder="할일을 입력하세요"
+      />
+      <TodoButton
+        data-testid="new-todo-add-button"
+        onClick={handleAddButtonClick}
+      >
         추가
       </TodoButton>
     </TodoInputField>

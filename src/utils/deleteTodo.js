@@ -4,7 +4,9 @@ const deleteTodo = async (id, setTodoList) => {
   try {
     const response = await fetch(`${TODO_API_URL}/${id}`, {
       method: "DELETE",
-      headers: { Authorization: "Bearer " + localStorage.getItem("access_token") },
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+      },
     });
     if (response.status === 204) {
       setTodoList((prev) => prev.filter((todo) => todo.id !== id));

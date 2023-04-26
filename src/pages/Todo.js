@@ -1,6 +1,5 @@
-import useAccessTokenCheck from "../hook/useAccessTokenCheck";
-
 import TodoList from "../components/TodoList";
+import useAccessTokenCheck from "../hooks/useAccessTokenCheck";
 import TodoPage from "../styles/TodoPage";
 
 const Todo = () => {

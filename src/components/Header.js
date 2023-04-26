@@ -39,8 +39,13 @@ const Header = () => {
     <StyledHeader>
       <span>TODO</span>
       <Buttons>
-        <Button onClick={handleToggleButtonClick}>{isSignedIn ? "로그아웃" : "로그인"}</Button>
-        <ToggleButton onClick={handleSignupButtonClick} shouldDisplay={!isSignedIn}>
+        <Button onClick={handleToggleButtonClick}>
+          {isSignedIn ? "로그아웃" : "로그인"}
+        </Button>
+        <ToggleButton
+          onClick={handleSignupButtonClick}
+          shouldDisplay={!isSignedIn}
+        >
           회원가입
         </ToggleButton>
       </Buttons>

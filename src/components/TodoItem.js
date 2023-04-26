@@ -1,6 +1,4 @@
 import { useState } from "react";
-import deleteTodo from "../utils/deleteTodo";
-import updateTodo from "../utils/updateTodo";
 
 import Checkbox from "../styles/Checkbox";
 import Input from "../styles/Input";
@@ -8,6 +6,8 @@ import TodoButton from "../styles/TodoButton";
 import TodoButtons from "../styles/TodoButtons";
 import StyledTodoItem from "../styles/TodoItem";
 import TodoLabel from "../styles/TodoLabel";
+import deleteTodo from "../utils/deleteTodo";
+import updateTodo from "../utils/updateTodo";
 
 const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
   const [input, setInput] = useState(todo);
@@ -45,8 +45,18 @@ const TodoItem = ({ id, todo, isCompleted, setTodoList }) => {
   return (
     <StyledTodoItem>
       <TodoLabel>
-        <Checkbox type="checkbox" checked={isCompleted} onChange={handleCheckboxClick} />
-        {isModifyMode && <Input data-testid="modify-input" value={input} onChange={handleInputChange} />}
+        <Checkbox
+          type="checkbox"
+          checked={isCompleted}
+          onChange={handleCheckboxClick}
+        />
+        {isModifyMode && (
+          <Input
+            data-testid="modify-input"
+            value={input}
+            onChange={handleInputChange}
+          />
+        )}
         {!isModifyMode && <span>{todo}</span>}
       </TodoLabel>
       {isModifyMode && (

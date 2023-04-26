@@ -1,6 +1,5 @@
-import useAccessTokenCheck from "../hook/useAccessTokenCheck";
-
 import SignForm from "../components/SignForm";
+import useAccessTokenCheck from "../hooks/useAccessTokenCheck";
 import SignPage from "../styles/SignPage";
 
 const Signin = () => {
